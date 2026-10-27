@@ -43,7 +43,7 @@ export default function Home() {
             <p className="lead">Oud, amber and rose, chosen by hand. Delivered the same day in Nairobi, paid for when it arrives.</p>
             <Link className="btn" to="/shop">Shop the collection</Link> <a className="btn ghost" href="#finder">Find my scent</a>
           </div>
-          <Slideshow ns={[1, 2, 3, 4]} alt="OVO Fragrance House perfume" />
+          <Slideshow ns={[1,  3, 4]} alt="OVO Fragrance House perfume" />
         </div>
       </section>
 
