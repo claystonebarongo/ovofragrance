@@ -11,7 +11,13 @@ export const useCart = () => useContext(CartCtx);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<Items>(() => {
-    try { return JSON.parse(localStorage.getItem('ovo-cart') || '{}'); } catch { return {}; }
+    try {
+      const saved: Items = JSON.parse(localStorage.getItem('ovo-cart') || '{}');
+      // Keep only items that still exist in the catalogue and have a valid quantity.
+      return Object.fromEntries(
+        Object.entries(saved).filter(([id, q]) => products.some((p) => p.id === id) && Number.isInteger(q) && q > 0)
+      );
+    } catch { return {}; }
   });
   const [open, setOpen] = useState(false);
   useEffect(() => { try { localStorage.setItem('ovo-cart', JSON.stringify(items)); } catch {} }, [items]);

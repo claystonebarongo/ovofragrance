@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Arch } from '../ui';
+import { BASE } from '../photos';
 import { BRAND, waLink } from '../data';
 
 export function About() {
@@ -9,11 +9,11 @@ export function About() {
       <div>
         <h1>Our story</h1>
         {/* Replace this copy with OVO's real story. */}
-        <p className="lead">OVO Fragrance House began with a simple idea: great Arabian perfume should be easy to find and easy to order.</p>
+        <p className="lead">OVO Fragrance House began with a simple idea: great perfume should be easy to find and easy to order.</p>
         <p className="mu">We choose every fragrance by hand, test it, and deliver it to your door. Tell us what you like and we will help you find a scent that feels like you.</p>
         <Link className="btn" to="/shop">Shop the collection</Link>
       </div>
-      <Arch n={23} alt="OVO Fragrance House" />
+      <img className="aboutimg" src={BASE + 'images/brand/ovo-logo.png'} alt="OVO Fragrance House" />
     </section>
   );
 }
